@@ -1,4 +1,3 @@
-// Home.js
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Exercises from '../Exercises/Exercises';
@@ -16,17 +15,18 @@ const Home = ({ route }) => {
                 tabBarIcon: ({ color, size }) => {
                     let iconName;
                     if (route.name === 'Exercises') {
-                        iconName = 'clipboard-text';
+                        iconName = 'run-fast'; 
                     } else if (route.name === 'You') {
-                        iconName = 'format-list-bulleted';
+                        iconName = 'account-circle-outline'; 
                     }
+
 
                     return <Icon name={iconName} size={30} color={color} />;
                 },
                 tabBarLabelStyle: { fontSize: 14 },
                 tabBarStyle: { height: 60 },
-                tabBarActiveTintColor: '#6200ee', // Active tab color
-                tabBarInactiveTintColor: '#8b729e', // Inactive tab color
+                tabBarActiveTintColor: '#0c62f2', 
+                tabBarInactiveTintColor: '#7393c7', 
             })}
         >
             <Tab.Screen 

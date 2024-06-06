@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, StyleSheet, Alert } from 'react-native';
+import { View, StyleSheet, Alert, Image } from 'react-native';
 import { TextInput, Button, Text } from 'react-native-paper';
 import axios from 'axios';
 import { API_URL } from '@env';
@@ -12,20 +12,16 @@ const Login = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      //console.log(API_URL);
       const response = await axios.post(`${API_URL}/users/login`, { email, password });
       const { token, user } = response.data;
 
-      // Store token in AsyncStorage
       await AsyncStorage.setItem('token', token);
 
-      // Extract userId from the user object
       const userId = user.id;
       const displayName = user.displayname;
 
       navigation.navigate('Home', { userId, displayName });
     } catch (error) {
-      // Handle different error responses
       if (error.response) {
         if (error.response.status === 400) {
           Alert.alert('Error', 'Email or password is missing');
@@ -46,7 +42,9 @@ const Login = ({ navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.header}>Login</Text>
+      <View style={styles.logoContainer}>
+        <Image source={require('../../assets/logo.png')} style={styles.logo} />
+      </View>
       <TextInput
         label="Email"
         value={email}

@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native'; // Ensure Text is imported from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'; 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -31,7 +31,7 @@ const CustomSplashScreen = () => {
 
 export default function App() {
   const [appIsReady, setAppIsReady] = useState(false);
-  const [fontSize, setFontSize] = useState(30); // Initialize default font size
+  const [fontSize, setFontSize] = useState(30); 
 
   useEffect(() => {
     async function prepare() {

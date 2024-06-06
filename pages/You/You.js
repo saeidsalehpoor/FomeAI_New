@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, StyleSheet } from 'react-native';
-import { Text } from 'react-native-paper';
+import { Text, Button } from 'react-native-paper';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import ActivitiesScreen from './ActivitiesScreen';
+
+const Tab = createMaterialTopTabNavigator();
+
+const AchievementsScreen = () => {
+    return (
+        <View style={styles.container}>
+            <Text>Achievements Screen</Text>
+        </View>
+    );
+};
 
 const You = () => {
     return (
-        <View style={styles.container}><Text>Select an exercise to see details</Text></View>
+        <Tab.Navigator>
+            <Tab.Screen name="Activities" component={ActivitiesScreen} />
+            <Tab.Screen name="Achievements" component={AchievementsScreen} />
+        </Tab.Navigator>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        padding: 20,
+        flex: 1,
+        justifyContent: 'center',
         alignItems: 'center',
     },
 });

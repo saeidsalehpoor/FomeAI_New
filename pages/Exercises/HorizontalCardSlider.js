@@ -1,4 +1,3 @@
-// HorizontalCardSlider.js
 import React, { useRef, useState } from 'react';
 import { FlatList, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';

@@ -1,4 +1,3 @@
-// Card.js
 import React from 'react';
 import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import { Card as PaperCard } from 'react-native-paper';
@@ -18,14 +17,15 @@ const Card = ({ item }) => {
                 <Text style={styles.title}>{item.name}</Text>
                 <Text style={styles.score}>{item.scores}</Text>
                 <Text style={styles.description}>{item.description}</Text>
-                {/*
-                <Text style={styles.form}>Proper Form</Text>
-                <Text style={styles.description}>{item.properform}</Text>
-    */}
             </PaperCard.Content>
-            <PaperCard.Actions style={styles.buttonContainer}>
-                <Button title="Start Training" onPress={handleStartTraining} color="#ff69b4" />
-            </PaperCard.Actions>
+            <View style={styles.buttonContainer}>
+                <Button 
+                    title="Start Training" 
+                    onPress={handleStartTraining} 
+                    color="#4979D0" 
+                    style={styles.button} 
+                />
+            </View>
         </PaperCard>
     );
 };
@@ -38,16 +38,13 @@ const styles = StyleSheet.create({
     image: {
         height: 150,
         marginBottom: 20,
+        borderBottomLeftRadius: 0, 
+        borderBottomRightRadius: 0, 
     },
     title: {
         fontSize: 20,
         fontWeight: 'bold',
         marginBottom: 20,
-    },
-    form: {
-        fontSize: 14,
-        fontWeight: 'bold',
-        marginBottom: 5,
     },
     score: {
         fontSize: 14,
@@ -55,15 +52,21 @@ const styles = StyleSheet.create({
         marginBottom: 10,
     },
     description: {
-        fontSize: 14,
+        fontSize: 16,
         color: '#666',
-        marginBottom: 50,
+        marginBottom: 20,
         textAlign: 'justify',
     },
     buttonContainer: {
-        justifyContent: 'center',
-        alignItems: 'center',
+        marginLeft: 30, 
+        marginRight: 30, 
+        marginBottom : 30
+    },
+    button: {
+        alignSelf: 'flex-start', 
+        width: 70,
     },
 });
 
 export default Card;
+

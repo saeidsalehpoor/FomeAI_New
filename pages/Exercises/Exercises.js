@@ -1,6 +1,5 @@
-// Exercises.js
 import React from 'react';
-import { SafeAreaView, StyleSheet, Text } from 'react-native';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import HorizontalCardSlider from './HorizontalCardSlider';
 
@@ -23,17 +22,24 @@ const exercises = [
         image: 'https://st2.depositphotos.com/2171279/9077/i/950/depositphotos_90778954-stock-photo-woman-doing-plank-exercise-in.jpg',
         image2: 'https://www.shutterstock.com/image-vector/step-instruction-push-woman-cartoon-600nw-454190938.jpg'
     },
-    // Add more exercises as needed
 ];
 
 
 const Exercises = ({ route}) => {
     const { userId, displayName } = route.params;
+
+    // Split the displayName on space and get the first part
+    const displayNameParts = displayName.split(' ');
+    const firstName = displayNameParts[0];
+
     return (
         <PaperProvider>
             <SafeAreaView style={styles.container}>
-                <Text style={styles.header}>Welcome back, {displayName}</Text>
-                <Text style={styles.header}>Exercises</Text>
+            <View style={styles.headerContainer}>
+                    <Text style={styles.welcomeText}>Welcome back, </Text>
+                    <Text style={styles.displayName}>{firstName}</Text>
+                </View>
+                <Text style={styles.exercisesTitle}>Exercises</Text>
                 <HorizontalCardSlider data={exercises} />
             </SafeAreaView>
         </PaperProvider>
@@ -46,11 +52,29 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         paddingVertical: 20,
     },
-    header: {
+    headerContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom: 10,
+        marginLeft: 50,
+    },
+    welcomeText: {
         fontSize: 24,
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'left',
+    },
+    displayName: {
+        fontSize: 24,
+        fontWeight: 'bold',
+        color: '#4979D0', 
+        textAlign: 'left',
+    },
+    exercisesTitle: {
+        fontSize: 20,
+        //fontWeight: 'bold',
+        textAlign: 'left',
         marginBottom: 10,
+        marginLeft: 50,
     },
 });
 

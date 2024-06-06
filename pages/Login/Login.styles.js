@@ -6,6 +6,15 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       padding: 16,
       backgroundColor: 'white',
+      //alignItems: 'center',
+    },
+    logoContainer: {
+      alignItems: 'center',
+      marginBottom: 20,
+    },
+    logo: {
+      //width: 150, 
+      //height: 150, 
     },
     header: {
       fontSize: 24,
