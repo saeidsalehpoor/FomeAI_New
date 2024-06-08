@@ -12,7 +12,7 @@ const Login = ({ navigation }) => {
 
   const handleLogin = async () => {
     try {
-      //console.log(API_URL);
+      console.log(API_URL);
       const response = await axios.post(`${API_URL}/users/login`, { email, password });
       const { token, user } = response.data;
 

@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, Text } from 'react-native';
 import { Provider as PaperProvider } from 'react-native-paper';
 import HorizontalCardSlider from './HorizontalCardSlider';
 
-const exercises = [
+export const exercises = [
     {
         id: 1,
         name: 'Plank',

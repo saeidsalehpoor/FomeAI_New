@@ -4,6 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import Exercises from '../Exercises/Exercises';
 import You from '../You/You';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import RecordScreen from '../RecordPage/record';
 
 const Tab = createBottomTabNavigator();
 
@@ -38,6 +39,12 @@ const Home = ({ route }) => {
             <Tab.Screen 
                 name="You" 
                 component={You} 
+                initialParams={{ userId, displayName }} 
+                options={{ headerShown: false }} 
+            />
+            <Tab.Screen 
+                name="Record" 
+                component={RecordScreen} 
                 initialParams={{ userId, displayName }} 
                 options={{ headerShown: false }} 
             />

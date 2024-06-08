@@ -16,6 +16,7 @@ import Register from './pages/Login/Register';
 import Training from './pages/Exercises/Training';
 
 
+
 SplashScreen.preventAutoHideAsync();
 
 const Stack = createNativeStackNavigator();
@@ -78,6 +79,8 @@ export default function App() {
               initialParams={{ userId: '123' }}
             />
             <Stack.Screen name="Training" component={Training} />
+           
+            
           </Stack.Navigator>
         </View>
       </NavigationContainer>

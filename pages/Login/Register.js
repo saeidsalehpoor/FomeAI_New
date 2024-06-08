@@ -19,6 +19,8 @@ const Register = ({ navigation }) => {
         gender: 'M',
         email: email
       };
+      console.log(API_URL);
+
     
     const res = axios.post(`${API_URL}/users/register`, JSON.stringify(data), {
         headers: {
