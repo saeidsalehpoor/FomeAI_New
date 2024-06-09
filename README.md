@@ -90,7 +90,5 @@ This application is created by IFN771 Group 3 for the FOME AI Team. It is a mobi
 ### Additional Setup
 - Ensure you have the server setup for FOMEAI Computer Vision to handle the video uploads and analysis.
 
-## Contributing
-Contributions are welcome! Please create a pull request or open an issue to discuss your changes.
 
 
