@@ -14,6 +14,9 @@ import Home from './pages/Home/Home';
 import Login from './pages/Login/Login';
 import Register from './pages/Login/Register';
 import Training from './pages/Exercises/Training';
+//import ShowResult from './pages/Record/ShowResult';
+import Record from './pages/Record/Record';
+
 
 
 SplashScreen.preventAutoHideAsync();
@@ -78,6 +81,7 @@ export default function App() {
               initialParams={{ userId: '123' }}
             />
             <Stack.Screen name="Training" component={Training} />
+            <Stack.Screen name="Record" component={Record} />
           </Stack.Navigator>
         </View>
       </NavigationContainer>

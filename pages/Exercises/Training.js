@@ -2,9 +2,17 @@
 import React from 'react';
 import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
 
 const Training = ({ route, navigation }) => {
-    const { item } = route.params;
+    const { item, userId } = route.params;
+
+    //const navigation = useNavigation();
+
+    const recordVideo = () => {
+        //console.log(userId);
+        navigation.navigate('Record', {userId});
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -13,7 +21,7 @@ const Training = ({ route, navigation }) => {
             <View style={styles.content}>
                 <Text style={styles.form}>Proper Form</Text>
                 <Text style={styles.description}>{item.properform}</Text>
-                <Button color='#cf3e7a' title="Record" onPress={() => alert('Recording...')} />
+                <Button color='#cf3e7a' title="Record" onPress={recordVideo} />
             </View>
         </SafeAreaView>
     );

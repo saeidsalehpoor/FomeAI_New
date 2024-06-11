@@ -3,11 +3,11 @@ import { View, Text, Image, StyleSheet, Button } from 'react-native';
 import { Card as PaperCard } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 
-const Card = ({ item }) => {
+const Card = ({ item, userId }) => {
     const navigation = useNavigation();
 
     const handleStartTraining = () => {
-        navigation.navigate('Training', { item });
+        navigation.navigate('Training', { item, userId });
     };
 
     return (
@@ -69,4 +69,3 @@ const styles = StyleSheet.create({
 });
 
 export default Card;
-

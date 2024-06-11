@@ -3,7 +3,7 @@ import { FlatList, StyleSheet, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Card from './Card';
 
-const HorizontalCardSlider = ({ data }) => {
+const HorizontalCardSlider = ({ data, userId }) => {
     const flatListRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
 
@@ -32,12 +32,17 @@ const HorizontalCardSlider = ({ data }) => {
             <FlatList
                 ref={flatListRef}
                 data={data}
-                renderItem={({ item }) => <Card item={item} />}
+                renderItem={({ item }) => <Card item={item} userId={userId} />}
                 keyExtractor={(item) => item.id.toString()}
                 horizontal
                 showsHorizontalScrollIndicator={false}
                 contentContainerStyle={styles.list}
-                onScrollToIndexFailed={() => {}}
+                onScrollToIndexFailed={(info) => {
+                    const wait = new Promise((resolve) => setTimeout(resolve, 500));
+                    wait.then(() => {
+                        flatListRef.current?.scrollToIndex({ index: info.index, animated: true });
+                    });
+                }}
             />
             <TouchableOpacity onPress={handleNext} style={styles.arrowButton}>
                 <Icon name="chevron-right" size={30} color="#000" />
@@ -56,7 +61,7 @@ const styles = StyleSheet.create({
     },
     list: {
         flexGrow: 1,
-        paddingHorizontal: 0,
+        paddingHorizontal: 10,
     },
 });
 
